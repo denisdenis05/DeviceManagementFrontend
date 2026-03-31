@@ -1,0 +1,74 @@
+.authentication-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.authentication-card {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+}
+
+h2 {
+  text-align: center;
+  color: #333333;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+label {
+  font-weight: 600;
+  color: #000000;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.validation-error {
+  color: #ff0000;
+}
+
+.primary-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.primary-button:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+.primary-button:disabled {
+  background-color: #a0c4ff;
+  cursor: not-allowed;
+}
+
+.secondary-button {
+  width: 100%;
+  padding: 10px;
+  background-color: transparent;
+  color: #007bff;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.secondary-button:hover {
+  background-color: #f0f8ff;
+}

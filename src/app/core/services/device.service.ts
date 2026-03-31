@@ -11,27 +11,27 @@ export class DeviceService {
   public constructor(private readonly httpClient: HttpClient) {}
 
   public retrieveAllDevices(): Observable<Device[]> {
-    const requestUrl = `${ApplicationConstants.ApiBaseUrl}${ApplicationConstants.Endpoints.GetAllDevices}`;
+    const requestUrl = `${ApplicationConstants.ApiBaseUrl}${ApplicationConstants.Endpoints.Devices.GetAllDevices}`;
     return this.httpClient.get<Device[]>(requestUrl);
   }
 
   public retrieveDeviceByIdentifier(identifier: string): Observable<Device> {
-    const requestUrl = `${ApplicationConstants.ApiBaseUrl}${ApplicationConstants.Endpoints.GetDevice}?identifier=${identifier}`;
+    const requestUrl = `${ApplicationConstants.ApiBaseUrl}${ApplicationConstants.Endpoints.Devices.GetDevice}?identifier=${identifier}`;
     return this.httpClient.get<Device>(requestUrl);
   }
 
   public addDevice(device: Device): Observable<void> {
-    const requestUrl = `${ApplicationConstants.ApiBaseUrl}${ApplicationConstants.Endpoints.AddDevice}`;
+    const requestUrl = `${ApplicationConstants.ApiBaseUrl}${ApplicationConstants.Endpoints.Devices.AddDevice}`;
     return this.httpClient.post<void>(requestUrl, device);
   }
 
   public editDevice(device: Device): Observable<void> {
-    const requestUrl = `${ApplicationConstants.ApiBaseUrl}${ApplicationConstants.Endpoints.EditDevice}`;
+    const requestUrl = `${ApplicationConstants.ApiBaseUrl}${ApplicationConstants.Endpoints.Devices.EditDevice}`;
     return this.httpClient.post<void>(requestUrl, device);
   }
 
   public deleteDevice(identifier: string): Observable<void> {
-    const requestUrl = `${ApplicationConstants.ApiBaseUrl}${ApplicationConstants.Endpoints.DeleteDevice}?identifier=${identifier}`;
+    const requestUrl = `${ApplicationConstants.ApiBaseUrl}${ApplicationConstants.Endpoints.Devices.DeleteDevice}?identifier=${identifier}`;
     return this.httpClient.delete<void>(requestUrl);
   }
 }
