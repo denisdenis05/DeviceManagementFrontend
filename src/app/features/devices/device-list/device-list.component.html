@@ -1,5 +1,8 @@
 <div class="device-list-container">
-  <h1 class="header-title">All Devices</h1>
+  <div class="header-section">
+    <h1 class="header-title">All Devices</h1>
+    <button class="action-button success-button" (click)="navigateToCreate()">Create New Device</button>
+  </div>
 
   <div class="table-responsive">
     <table class="devices-table">
@@ -20,10 +23,10 @@
           <td>{{ device.type }}</td>
           <td>{{ device.operatingSystem }} {{ device.osVersion }}</td>
           <td>Unassigned</td>
-          <td>
-            <button class="action-button" (click)="navigateToDetail(device.id)">
-              View Details
-            </button>
+          <td class="action-columns">
+            <button class="action-button info-button" (click)="navigateToDetail(device.id)">View</button>
+            <button class="action-button warning-button" (click)="navigateToEdit(device.id)">Edit</button>
+            <button class="action-button danger-button" (click)="removeDevice(device.id)">Delete</button>
           </td>
         </tr>
       </tbody>

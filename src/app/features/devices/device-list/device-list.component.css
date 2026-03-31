@@ -35,6 +35,29 @@
   transition: background-color 0.2s;
 }
 
-.action-button:hover {
-  background-color: #0056b3;
+.action-columns {
+  display: flex;
+  gap: 10px;
 }
+
+.success-button {
+  background-color: #28a745;
+  margin: 10px
+}
+.success-button:hover { background-color: #218838; }
+
+.info-button {
+  background-color: #17a2b8;
+}
+.info-button:hover { background-color: #138496; }
+
+.warning-button {
+  background-color: #ffc107;
+  color: #212529;
+}
+.warning-button:hover { background-color: #e0a800; }
+
+.danger-button {
+  background-color: #dc3545;
+}
+.danger-button:hover { background-color: #c82333; }

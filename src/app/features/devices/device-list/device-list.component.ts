@@ -21,6 +21,10 @@ export class DeviceListComponent implements OnInit {
   ) {}
 
   public ngOnInit(): void {
+    this.fetchDeviceOverview();
+  }
+
+  private fetchDeviceOverview(): void {
     this.deviceService.retrieveAllDevices().subscribe({
       next: (devices: Device[]) => {
         this.devicesList = devices;
@@ -31,8 +35,29 @@ export class DeviceListComponent implements OnInit {
     });
   }
 
+  public navigateToCreate(): void {
+    const createRoute = '/' + ApplicationConstants.Routes.DeviceCreate;
+    this.router.navigate([createRoute]);
+  }
+
+  public navigateToEdit(identifier: string): void {
+    const editRoute = '/' + ApplicationConstants.Routes.DeviceEdit.replace(':identifier', identifier);
+    this.router.navigate([editRoute]);
+  }
+
   public navigateToDetail(identifier: string): void {
     const detailRoute = '/' + ApplicationConstants.Routes.DeviceDetail.replace(':identifier', identifier);
     this.router.navigate([detailRoute]);
+  }
+
+  public removeDevice(identifier: string): void {
+    this.deviceService.deleteDevice(identifier).subscribe({
+      next: () => {
+        this.fetchDeviceOverview();
+      },
+      error: (error: Error) => {
+        console.error(error.message);
+      }
+    });
   }
 }

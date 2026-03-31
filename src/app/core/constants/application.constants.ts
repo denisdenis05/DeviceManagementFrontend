@@ -10,6 +10,12 @@ export const ApplicationConstants = {
   Routes: {
     DeviceList: 'devices',
     DeviceDetail: 'details/:identifier',
+    DeviceCreate: 'create',
+    DeviceEdit: 'edit/:identifier',
     Default: ''
+  },
+  ValidationMessages: {
+    RequiredField: 'This field is required strictly.',
+    DuplicateDevice: 'A device with this exact name already exists. Provide a unique name.'
   }
 };

@@ -19,4 +19,19 @@ export class DeviceService {
     const requestUrl = `${ApplicationConstants.ApiBaseUrl}${ApplicationConstants.Endpoints.GetDevice}?identifier=${identifier}`;
     return this.httpClient.get<Device>(requestUrl);
   }
+
+  public addDevice(device: Device): Observable<void> {
+    const requestUrl = `${ApplicationConstants.ApiBaseUrl}${ApplicationConstants.Endpoints.AddDevice}`;
+    return this.httpClient.post<void>(requestUrl, device);
+  }
+
+  public editDevice(device: Device): Observable<void> {
+    const requestUrl = `${ApplicationConstants.ApiBaseUrl}${ApplicationConstants.Endpoints.EditDevice}`;
+    return this.httpClient.post<void>(requestUrl, device);
+  }
+
+  public deleteDevice(identifier: string): Observable<void> {
+    const requestUrl = `${ApplicationConstants.ApiBaseUrl}${ApplicationConstants.Endpoints.DeleteDevice}?identifier=${identifier}`;
+    return this.httpClient.delete<void>(requestUrl);
+  }
 }

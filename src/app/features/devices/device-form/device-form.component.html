@@ -1,0 +1,84 @@
+<div>
+  <div class="header-section">
+    <h1 *ngIf="isEditMode">Edit Device</h1>
+    <h1 *ngIf="!isEditMode">Create New Device</h1>
+    <a routerLink="/" class="back-link">&larr; Back to List</a>
+  </div>
+
+  <form [formGroup]="deviceFormGroup" (ngSubmit)="submitDeviceForm()" class="form-card">
+
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input id="name" type="text" formControlName="name" class="form-control" />
+      <div *ngIf="deviceFormGroup.get('name')?.touched && deviceFormGroup.get('name')?.invalid" class="error-message">
+        <span *ngIf="deviceFormGroup.get('name')?.errors?.['required']">{{ validationMessages.RequiredField }}</span>
+        <span *ngIf="deviceFormGroup.get('name')?.errors?.['duplicateDevice']">{{ validationMessages.DuplicateDevice }}</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="manufacturer">Manufacturer</label>
+      <input id="manufacturer" type="text" formControlName="manufacturer" class="form-control" />
+      <div *ngIf="deviceFormGroup.get('manufacturer')?.touched && deviceFormGroup.get('manufacturer')?.invalid" class="error-message">
+        <span *ngIf="deviceFormGroup.get('manufacturer')?.errors?.['required']">{{ validationMessages.RequiredField }}</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="type">Type</label>
+      <input id="type" type="text" formControlName="type" class="form-control" />
+      <div *ngIf="deviceFormGroup.get('type')?.touched && deviceFormGroup.get('type')?.invalid" class="error-message">
+        <span *ngIf="deviceFormGroup.get('type')?.errors?.['required']">{{ validationMessages.RequiredField }}</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="operatingSystem">Operating System</label>
+      <input id="operatingSystem" type="text" formControlName="operatingSystem" class="form-control" />
+      <div *ngIf="deviceFormGroup.get('operatingSystem')?.touched && deviceFormGroup.get('operatingSystem')?.invalid" class="error-message">
+        <span *ngIf="deviceFormGroup.get('operatingSystem')?.errors?.['required']">{{ validationMessages.RequiredField }}</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="osVersion">OS Version</label>
+      <input id="osVersion" type="text" formControlName="osVersion" class="form-control" />
+      <div *ngIf="deviceFormGroup.get('osVersion')?.touched && deviceFormGroup.get('osVersion')?.invalid" class="error-message">
+        <span *ngIf="deviceFormGroup.get('osVersion')?.errors?.['required']">{{ validationMessages.RequiredField }}</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="processor">Processor</label>
+      <input id="processor" type="text" formControlName="processor" class="form-control" />
+      <div *ngIf="deviceFormGroup.get('processor')?.touched && deviceFormGroup.get('processor')?.invalid" class="error-message">
+        <span *ngIf="deviceFormGroup.get('processor')?.errors?.['required']">{{ validationMessages.RequiredField }}</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="ramAmount">RAM Amount (GB)</label>
+      <input id="ramAmount" type="number" formControlName="ramAmount" class="form-control" />
+      <div *ngIf="deviceFormGroup.get('ramAmount')?.touched && deviceFormGroup.get('ramAmount')?.invalid" class="error-message">
+        <span *ngIf="deviceFormGroup.get('ramAmount')?.errors?.['required']">{{ validationMessages.RequiredField }}</span>
+        <span *ngIf="deviceFormGroup.get('ramAmount')?.errors?.['min']">{{ validationMessages.RequiredField }}</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea id="description" formControlName="description" class="form-control" rows="4"></textarea>
+      <div *ngIf="deviceFormGroup.get('description')?.touched && deviceFormGroup.get('description')?.invalid" class="error-message">
+        <span *ngIf="deviceFormGroup.get('description')?.errors?.['required']">{{ validationMessages.RequiredField }}</span>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="submit-button" [disabled]="deviceFormGroup.invalid && deviceFormGroup.touched">
+        <span *ngIf="isEditMode">Update Device</span>
+        <span *ngIf="!isEditMode">Create Device</span>
+      </button>
+    </div>
+
+  </form>
+</div>
