@@ -1,0 +1,49 @@
+<div class="device-detail-container" *ngIf="deviceDetail">
+  <div class="header-section">
+    <h1>Device Details</h1>
+    <a routerLink="/" class="back-link">&larr; Back to List</a>
+  </div>
+
+  <div class="detail-card">
+    <div class="detail-row">
+      <span class="detail-label">Identifier:</span>
+      <span class="detail-value">{{ deviceDetail.id }}</span>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Name:</span>
+      <span class="detail-value">{{ deviceDetail.name }}</span>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Manufacturer:</span>
+      <span class="detail-value">{{ deviceDetail.manufacturer }}</span>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Type:</span>
+      <span class="detail-value">{{ deviceDetail.type }}</span>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Operating System:</span>
+      <span class="detail-value">{{ deviceDetail.operatingSystem }} {{ deviceDetail.osVersion }}</span>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Processor:</span>
+      <span class="detail-value">{{ deviceDetail.processor }}</span>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">RAM Amount:</span>
+      <span class="detail-value">{{ deviceDetail.ramAmount }} GB</span>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Description:</span>
+      <span class="detail-value">{{ deviceDetail.description }}</span>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Assigned User:</span>
+      <span class="detail-value">Unassigned</span>
+    </div>
+  </div>
+</div>
+
+<div class="loading-state" *ngIf="!deviceDetail">
+  <p>Loading device details...</p>
+</div>

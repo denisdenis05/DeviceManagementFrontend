@@ -1,0 +1,32 @@
+<div class="device-list-container">
+  <h1 class="header-title">All Devices</h1>
+
+  <div class="table-responsive">
+    <table class="devices-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Manufacturer</th>
+          <th>Type</th>
+          <th>Operating System</th>
+          <th>Assigned User</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let device of devicesList">
+          <td>{{ device.name }}</td>
+          <td>{{ device.manufacturer }}</td>
+          <td>{{ device.type }}</td>
+          <td>{{ device.operatingSystem }} {{ device.osVersion }}</td>
+          <td>Unassigned</td>
+          <td>
+            <button class="action-button" (click)="navigateToDetail(device.id)">
+              View Details
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+.device-detail-container {
+  margin: 0 auto;
+}
+
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.back-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 00;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.detail-card {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.detail-row {
+  display: flex;
+  margin: 10px;
+  padding: 10px;
+}
+
+.detail-label {
+  font-weight: 600;
+  width: 200px;
+  color: #000000;
+}
+
+.detail-value {
+  flex: 1;
+  color: #333333;
+}
+
+.loading-state {
+  text-align: center;
+  padding: 10px;
+  color: #ffffff;
+}

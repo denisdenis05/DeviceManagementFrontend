@@ -1,0 +1,40 @@
+.device-list-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 70%;
+}
+
+.header-title {
+  font-size: 36px;
+  color: #ffffff;
+}
+
+.devices-table {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  background-color: #ffffff;
+}
+
+.devices-table th, .devices-table td {
+  padding: 20px;
+}
+
+.devices-table th {
+  font-weight: 600;
+}
+
+.action-button {
+  padding: 10px 20px;
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.action-button:hover {
+  background-color: #0056b3;
+}

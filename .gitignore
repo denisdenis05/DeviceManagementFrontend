@@ -1,0 +1,38 @@
+# IDE/Editor
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Dependencies
+node_modules/
+
+# Build artifacts
+dist/
+tmp/
+out-tsc/
+bazel-out/
+
+# Testing
+screenshots/
+coverage/
+
+# Documentation
+documentation/
+
+# Local environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Operating System
+.DS_Store
+Thumbs.db
+
+# Angular CLI
+.angular/
