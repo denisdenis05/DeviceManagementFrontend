@@ -4,6 +4,7 @@ import { RouterModule, Router } from '@angular/router';
 import { DeviceService } from '../../../core/services/device.service';
 import { Device } from '../../../core/models/device.model';
 import { ApplicationConstants } from '../../../core/constants/application.constants';
+import { AuthenticationService } from '../../../core/services/authentication.service';
 
 @Component({
   selector: 'app-device-list',
@@ -14,13 +15,16 @@ import { ApplicationConstants } from '../../../core/constants/application.consta
 })
 export class DeviceListComponent implements OnInit {
   public devicesList: Device[] = [];
+  public currentUserId: string | null = null;
   
   public constructor(
     private readonly deviceService: DeviceService,
+    private readonly authenticationService: AuthenticationService,
     private readonly router: Router
   ) {}
 
   public ngOnInit(): void {
+    this.currentUserId = this.authenticationService.getCurrentUserIdentifier();
     this.fetchDeviceOverview();
   }
 
@@ -52,6 +56,28 @@ export class DeviceListComponent implements OnInit {
 
   public removeDevice(identifier: string): void {
     this.deviceService.deleteDevice(identifier).subscribe({
+      next: () => {
+        this.fetchDeviceOverview();
+      },
+      error: (error: Error) => {
+        console.error(error.message);
+      }
+    });
+  }
+
+  public assignDevice(identifier: string): void {
+    this.deviceService.assignDevice(identifier).subscribe({
+      next: () => {
+        this.fetchDeviceOverview();
+      },
+      error: (error: Error) => {
+        console.error(error.message);
+      }
+    });
+  }
+
+  public unassignDevice(identifier: string): void {
+    this.deviceService.unassignDevice(identifier).subscribe({
       next: () => {
         this.fetchDeviceOverview();
       },

@@ -34,4 +34,16 @@ export class DeviceService {
     const requestUrl = `${ApplicationConstants.ApiBaseUrl}${ApplicationConstants.Endpoints.Devices.DeleteDevice}?identifier=${identifier}`;
     return this.httpClient.delete<void>(requestUrl);
   }
+
+  public assignDevice(identifier: string): Observable<void> {
+    const requestUrl = `${ApplicationConstants.ApiBaseUrl}${ApplicationConstants.Endpoints.Devices.AssignDevice}`;
+    const payload = { deviceIdentifier: identifier, userIdentifier: '' };
+    return this.httpClient.post<void>(requestUrl, payload);
+  }
+
+  public unassignDevice(identifier: string): Observable<void> {
+    const requestUrl = `${ApplicationConstants.ApiBaseUrl}${ApplicationConstants.Endpoints.Devices.UnassignDevice}`;
+    const payload = { deviceIdentifier: identifier, userIdentifier: '' };
+    return this.httpClient.post<void>(requestUrl, payload);
+  }
 }

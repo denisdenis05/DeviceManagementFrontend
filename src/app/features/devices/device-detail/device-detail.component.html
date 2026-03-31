@@ -1,7 +1,7 @@
 <div class="device-detail-container" *ngIf="deviceDetail">
   <div class="header-section">
     <h1>Device Details</h1>
-    <a routerLink="/" class="back-link">&larr; Back to List</a>
+    <a [routerLink]="['/' + applicationConstants.Routes.DeviceList]" class="back-link">&larr; Back to List</a>
   </div>
 
   <div class="detail-card">
@@ -39,7 +39,10 @@
     </div>
     <div class="detail-row">
       <span class="detail-label">Assigned User:</span>
-      <span class="detail-value">Unassigned</span>
+      <span class="detail-value" *ngIf="deviceDetail.assignedUserId">
+        {{ deviceDetail.assignedUserId === currentUserId ? 'You' : deviceDetail.assignedUserEmail }}
+      </span>
+      <span class="detail-value" *ngIf="!deviceDetail.assignedUserId">Unassigned</span>
     </div>
   </div>
 </div>

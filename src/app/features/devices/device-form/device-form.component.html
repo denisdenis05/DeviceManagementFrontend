@@ -2,7 +2,7 @@
   <div class="header-section">
     <h1 *ngIf="isEditMode">Edit Device</h1>
     <h1 *ngIf="!isEditMode">Create New Device</h1>
-    <a routerLink="/" class="back-link">&larr; Back to List</a>
+    <a [routerLink]="['/' + applicationConstants.Routes.DeviceList]" class="back-link">&larr; Back to List</a>
   </div>
 
   <form [formGroup]="deviceFormGroup" (ngSubmit)="submitDeviceForm()" class="form-card">

@@ -8,4 +8,6 @@ export interface Device {
   processor: string;
   ramAmount: number;
   description: string;
+  assignedUserId: string;
+  assignedUserEmail: string;
 }

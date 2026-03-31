@@ -6,7 +6,9 @@ export const ApplicationConstants = {
       GetDevice: '/Devices/get-device',
       AddDevice: '/Devices/add',
       EditDevice: '/Devices/edit',
-      DeleteDevice: '/Devices/delete'
+      DeleteDevice: '/Devices/delete',
+      AssignDevice: '/Devices/assign',
+      UnassignDevice: '/Devices/unassign'
     },
     Authentication: {
       Login: '/Auth/login',

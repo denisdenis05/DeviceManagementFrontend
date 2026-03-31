@@ -47,4 +47,24 @@ export class AuthenticationService {
     const token = this.tokenStorageService.getToken();
     return token !== null && token.length > 0;
   }
+
+  public getCurrentUserIdentifier(): string | null {
+    const authenticationToken = this.tokenStorageService.getToken();
+    if (!authenticationToken) {
+      return null;
+    }
+    
+    try {
+      const payloadBase64 = authenticationToken.split('.')[1];
+      const payloadDecoded = atob(payloadBase64);
+      const tokenPayload = JSON.parse(payloadDecoded);
+      
+      const identifierClaim = tokenPayload['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier'] 
+        || tokenPayload['nameid'];
+        
+      return identifierClaim || null;
+    } catch {
+      return null;
+    }
+  }
 }

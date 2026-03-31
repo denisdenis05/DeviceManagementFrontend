@@ -22,8 +22,15 @@
           <td>{{ device.manufacturer }}</td>
           <td>{{ device.type }}</td>
           <td>{{ device.operatingSystem }} {{ device.osVersion }}</td>
-          <td>Unassigned</td>
+          <td>
+            <span *ngIf="device.assignedUserId">
+              {{ device.assignedUserId === currentUserId ? 'You' : device.assignedUserEmail }}
+            </span>
+            <span *ngIf="!device.assignedUserId">Unassigned</span>
+          </td>
           <td class="action-columns">
+            <button class="action-button success-button" *ngIf="!device.assignedUserId" (click)="assignDevice(device.id)">Assign to me</button>
+            <button class="action-button warning-button" *ngIf="device.assignedUserId === currentUserId" (click)="unassignDevice(device.id)">Unassign</button>
             <button class="action-button info-button" (click)="navigateToDetail(device.id)">View</button>
             <button class="action-button warning-button" (click)="navigateToEdit(device.id)">Edit</button>
             <button class="action-button danger-button" (click)="removeDevice(device.id)">Delete</button>

@@ -19,6 +19,7 @@ export class DeviceFormComponent implements OnInit, OnDestroy {
   public deviceFormGroup: FormGroup;
   public isEditMode: boolean = false;
   public validationMessages = ApplicationConstants.ValidationMessages;
+  public applicationConstants = ApplicationConstants;
   private readonly componentDestroyed$ = new Subject<void>();
   private currentDeviceIdentifier: string = '';
 
