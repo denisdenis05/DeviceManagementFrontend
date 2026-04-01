@@ -37,7 +37,7 @@ export class DeviceFormComponent implements OnInit, OnDestroy {
       osVersion: ['', Validators.required],
       processor: ['', Validators.required],
       ramAmount: [0, [Validators.required, Validators.min(1)]],
-      description: ['', Validators.required]
+      description: ['']
     });
   }
 

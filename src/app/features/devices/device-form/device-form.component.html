@@ -68,9 +68,6 @@
     <div class="form-group">
       <label for="description">Description</label>
       <textarea id="description" formControlName="description" class="form-control" rows="4"></textarea>
-      <div *ngIf="deviceFormGroup.get('description')?.touched && deviceFormGroup.get('description')?.invalid" class="error-message">
-        <span *ngIf="deviceFormGroup.get('description')?.errors?.['required']">{{ validationMessages.RequiredField }}</span>
-      </div>
     </div>
 
     <div class="form-actions">
