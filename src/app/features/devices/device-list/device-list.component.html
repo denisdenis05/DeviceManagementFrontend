@@ -3,6 +3,11 @@
     <h1 class="header-title">All Devices</h1>
     <button class="action-button success-button" (click)="navigateToCreate()">Create New Device</button>
   </div>
+  
+  <div class="search-section">
+    <input type="text" [(ngModel)]="searchQuery" placeholder="Search devices... (experimental)" class="search-bar" />
+    <button class="action-button info-button" (click)="openAiAssistant()">Explain what you need</button>
+  </div>
 
   <div class="table-responsive">
     <table class="devices-table">

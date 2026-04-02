@@ -13,6 +13,9 @@ export const ApplicationConstants = {
     Authentication: {
       Login: '/Auth/login',
       Register: '/Auth/register'
+    },
+    Ai: {
+      Chat: '/Ai/chat'
     }
   },
   Routes: {
