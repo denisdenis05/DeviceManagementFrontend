@@ -43,7 +43,7 @@ export class DeviceListComponent implements OnInit {
 
   public ngOnInit(): void {
     this.currentUserId = this.authenticationService.getCurrentUserIdentifier();
-    this.fetchDeviceOverview();
+    this.refreshDevicesList();
     this.initializeSearchSubscription();
   }
 
@@ -67,15 +67,26 @@ export class DeviceListComponent implements OnInit {
     });
   }
 
-  private fetchDeviceOverview(): void {
-    this.deviceService.retrieveAllDevices().subscribe({
-      next: (devices: Device[]) => {
-        this.devicesList = devices;
-      },
-      error: (error: Error) => {
-        console.error(error.message);
-      }
-    });
+  private refreshDevicesList(): void {
+    if (this.searchQuery.trim()) {
+      this.searchService.searchDevices(this.searchQuery).subscribe({
+        next: (devices: Device[]) => {
+          this.devicesList = devices;
+        },
+        error: (error: Error) => {
+          console.error(error.message);
+        }
+      });
+    } else {
+      this.deviceService.retrieveAllDevices().subscribe({
+        next: (devices: Device[]) => {
+          this.devicesList = devices;
+        },
+        error: (error: Error) => {
+          console.error(error.message);
+        }
+      });
+    }
   }
 
   public navigateToCreate(): void {
@@ -96,7 +107,7 @@ export class DeviceListComponent implements OnInit {
   public removeDevice(identifier: string): void {
     this.deviceService.deleteDevice(identifier).subscribe({
       next: () => {
-        this.fetchDeviceOverview();
+        this.refreshDevicesList();
       },
       error: (error: Error) => {
         console.error(error.message);
@@ -107,7 +118,7 @@ export class DeviceListComponent implements OnInit {
   public assignDevice(identifier: string): void {
     this.deviceService.assignDevice(identifier).subscribe({
       next: () => {
-        this.fetchDeviceOverview();
+        this.refreshDevicesList();
       },
       error: (error: Error) => {
         console.error(error.message);
@@ -118,7 +129,7 @@ export class DeviceListComponent implements OnInit {
   public unassignDevice(identifier: string): void {
     this.deviceService.unassignDevice(identifier).subscribe({
       next: () => {
-        this.fetchDeviceOverview();
+        this.refreshDevicesList();
       },
       error: (error: Error) => {
         console.error(error.message);
