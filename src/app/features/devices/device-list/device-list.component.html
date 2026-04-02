@@ -5,7 +5,7 @@
   </div>
   
   <div class="search-section">
-    <input type="text" [(ngModel)]="searchQuery" placeholder="Search devices... (experimental)" class="search-bar" />
+    <input type="text" [(ngModel)]="searchQuery" (ngModelChange)="onSearchQueryChange($event)" placeholder="Search devices..." class="search-bar" />
     <button class="action-button info-button" (click)="openAiAssistant()">Explain what you need</button>
   </div>
 

@@ -16,6 +16,9 @@ export const ApplicationConstants = {
     },
     Ai: {
       Chat: '/Ai/chat'
+    },
+    Search: {
+      DeviceSearch: '/Search'
     }
   },
   Routes: {
