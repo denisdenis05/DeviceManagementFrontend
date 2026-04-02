@@ -84,6 +84,9 @@ export class DeviceFormComponent implements OnInit, OnDestroy {
       .subscribe({
         next: () => {
           this.router.navigate([ApplicationConstants.Routes.DeviceList]);
+        },
+        error: (error: Error) => {
+          console.error(error.message);
         }
       });
   }
